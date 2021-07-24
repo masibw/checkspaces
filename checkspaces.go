@@ -74,6 +74,9 @@ func readDirectiveConfig() *Directive {
 
 func run(pass *analysis.Pass) (interface{}, error) {
 	directives := readDirectiveConfig()
+	if directives == nil {
+		directives = &Directive{}
+	}
 	directives.Content = append(directives.Content, "go:embed")
 	inspect := pass.ResultOf[inspect.Analyzer].(*inspector.Inspector)
 
