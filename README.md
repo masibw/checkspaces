@@ -15,3 +15,16 @@ go install github.com/masibw/checkspaces/cmd/checkspaces@latest
 ```
 go vet -vettool=`which checkspaces` ./...
 ```
+
+# Example
+```
+var (
+    // go:embed testfile.txt
+    fileInvalid []byte
+)
+```
+
+Output
+```
+./main.go:9:2: There is a space between slash and go:embed
+```
