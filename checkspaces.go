@@ -32,7 +32,7 @@ func run(pass *analysis.Pass) (interface{}, error) {
 		switch n := n.(type) {
 		case *ast.Comment:
 			if strings.Contains(n.Text, "// go:embed") {
-				pass.Reportf(n.Pos(), "No space between slash and go:embed")
+				pass.Reportf(n.Pos(), "There is a space between slash and go:embed")
 			}
 		}
 	})
